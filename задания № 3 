@@ -1,0 +1,28 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    // ENTREE (fixe)
+    int arr[] = {-1, 2, 3, 4, 7};
+    int n = 5;
+    int target = 5;
+
+    unordered_map<int, int> hashTable;
+
+    // Traitement
+    for (int i = 0; i < n; i++) {
+        int needed = target - arr[i];
+
+        if (hashTable.find(needed) != hashTable.end()) {
+            // SORTIE
+            cout << "Indices : "
+                 << hashTable[needed] << " et " << i << endl;
+            return 0;
+        }
+        hashTable[arr[i]] = i;
+    }
+
+    cout << "Aucune solution" << endl;
+    return 0;
+}
