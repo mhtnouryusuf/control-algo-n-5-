@@ -1,0 +1,35 @@
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+
+int main() {
+    // ENTREES (fixes)
+    int A[] = {1, 2, 3, 4, 5};
+    int B[] = {0, 2, 4, 6, 8};
+    int nA = 5, nB = 5;
+
+    unordered_map<int, bool> hashTable;
+    vector<int> intersection;
+
+    // Stocker les elements du premier tableau
+    for (int i = 0; i < nA; i++) {
+        hashTable[A[i]] = true;
+    }
+
+    // Verifier le second tableau
+    for (int i = 0; i < nB; i++) {
+        if (hashTable[B[i]]) {
+            intersection.push_back(B[i]);
+            hashTable[B[i]] = false; // eviter doublons
+        }
+    }
+
+    // SORTIE
+    cout << "Intersection : ";
+    for (int x : intersection) {
+        cout << x << " ";
+    }
+
+    return 0;
+}
