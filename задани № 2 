@@ -1,0 +1,24 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    // ENTREE (fixe)
+    string text = "hash table";
+
+    unordered_map<char, int> table;
+
+    // Comptage
+    for (char c : text) {
+        table[c]++;
+    }
+
+    // SORTIE
+    cout << "Texte : " << text << endl;
+    cout << "Occurrences :" << endl;
+    for (auto p : table) {
+        cout << p.first << " : " << p.second << endl;
+    }
+
+    return 0;
+}
