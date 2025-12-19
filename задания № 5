@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+using namespace std;
+
+string firstRepeated(vector<string> arr) {
+    unordered_set<string> seen;
+
+    for (string s : arr) {
+        if (seen.count(s)) {
+            return s; // première valeur répétée
+        }
+        seen.insert(s);
+    }
+    return "Aucune répétition";
+}
+
+int main() {
+    // Entrée intégrée dans le programme
+    vector<string> arr = {"a", "b", "c", "d", "c", "e", "f"};
+
+    string result = firstRepeated(arr);
+
+    // Sortie
+    cout << "Premiere valeur repetee : " << result << endl;
+
+    return 0;
+}
